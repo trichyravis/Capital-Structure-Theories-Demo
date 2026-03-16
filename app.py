@@ -408,9 +408,9 @@ ke_MMtax = ke_unlevered + (ke_unlevered - kd) * (1 - tax_rate / 100) * (D_arr / 
 WACC_MMtax = (ke_MMtax * E_safe / (E_safe + D_arr) + kd * (1 - tax_rate / 100) * D_arr / (E_safe + D_arr)) * 100
 
 # ─── Tabs ────────────────────────────────────────────────────────────────────────
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "📊 Overview", "📘 NI Approach", "📗 NOI Approach",
-    "📙 MM No Tax", "📕 MM With Tax", "🔬 Comparison"
+    "📙 MM No Tax", "📕 MM With Tax", "🔬 Comparison", "🎓 Education Notes"
 ])
 
 # ══════════════════════════════════════════════════════════════════════════════════
@@ -940,6 +940,419 @@ with tab6:
         baselines from which real-world deviations are measured.
     </div>
     """, unsafe_allow_html=True)
+
+# ══════════════════════════════════════════════════════════════════════════════════
+# TAB 7: EDUCATION NOTES
+# ══════════════════════════════════════════════════════════════════════════════════
+with tab7:
+    st.markdown('<div class="theory-tag">Comprehensive Study Notes</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">📚 Capital Structure Theories — Complete Education Notes</div>', unsafe_allow_html=True)
+
+    edu1, edu2, edu3, edu4 = st.tabs([
+        "🏛️ Foundations", "📘 NI & NOI", "📙 MM Models", "🌍 Real-World Extensions"
+    ])
+
+    # ── FOUNDATIONS ─────────────────────────────────────────────────────────────
+    with edu1:
+        st.markdown("""
+        <div class="section-header">What is Capital Structure?</div>
+        <div class="info-box">
+            <b>Definition:</b> Capital structure refers to the specific mix of <u>debt</u> and <u>equity</u>
+            a firm uses to finance its assets and operations. The central question in corporate finance is:
+            <i>"Does the financing mix affect the total value of the firm?"</i>
+        </div>
+
+        <div class="section-header">Key Components</div>
+        <table class="comp-table">
+          <tr><th>Component</th><th>Description</th><th>Cost</th><th>Tax Treatment</th></tr>
+          <tr>
+            <td><b>Debt (D)</b></td>
+            <td>Bonds, debentures, bank loans, commercial paper</td>
+            <td>Kd — Interest rate</td>
+            <td>Interest is tax-deductible → creates tax shield</td>
+          </tr>
+          <tr>
+            <td><b>Equity (E)</b></td>
+            <td>Common shares, retained earnings, preference shares</td>
+            <td>Ke — Required return by shareholders</td>
+            <td>Dividends are NOT tax-deductible</td>
+          </tr>
+          <tr>
+            <td><b>WACC</b></td>
+            <td>Weighted Average Cost of Capital</td>
+            <td>Ke·(E/V) + Kd(1-T)·(D/V)</td>
+            <td>Blended cost of all financing sources</td>
+          </tr>
+        </table>
+
+        <div class="section-header">Core Terminology</div>
+        <table class="comp-table">
+          <tr><th>Term</th><th>Formula</th><th>Meaning</th></tr>
+          <tr><td><b>Financial Leverage</b></td><td>D/E or D/V</td><td>Degree to which a firm uses debt financing</td></tr>
+          <tr><td><b>Levered Firm (V_L)</b></td><td>E + D</td><td>Firm with debt in its capital structure</td></tr>
+          <tr><td><b>Unlevered Firm (V_U)</b></td><td>E only</td><td>All-equity financed firm (no debt)</td></tr>
+          <tr><td><b>EBIT</b></td><td>Revenue − COGS − OPEX</td><td>Earnings before interest and taxes</td></tr>
+          <tr><td><b>EBT</b></td><td>EBIT − Interest</td><td>Earnings before tax</td></tr>
+          <tr><td><b>EAT / NI</b></td><td>EBT × (1−T)</td><td>Net income available to equity holders</td></tr>
+          <tr><td><b>Tax Shield</b></td><td>T × Interest = T × Kd × D</td><td>Tax savings from debt financing</td></tr>
+          <tr><td><b>Interest Coverage</b></td><td>EBIT / Interest</td><td>Ability to service debt obligations</td></tr>
+          <tr><td><b>Financial Distress</b></td><td>—</td><td>Inability to meet debt obligations; triggers costs</td></tr>
+        </table>
+
+        <div class="section-header">Why Capital Structure Matters</div>
+        <div class="info-box">
+            The optimal capital structure minimises WACC and maximises firm value. Since debt is cheaper
+            than equity (due to tax deductibility and lower risk for lenders), some debt is typically beneficial.
+            However, excessive debt raises financial distress costs and increases equity risk premium demanded
+            by shareholders — creating a <b>trade-off</b>.
+        </div>
+
+        <div class="formula-box">
+            Firm Value  V  =  D + E  =  PV of future cash flows discounted at WACC<br>
+            WACC  =  Ke · (E/V)  +  Kd · (1−T) · (D/V)<br>
+            ↑ Debt  →  ↓ WACC  →  ↑ Firm Value  [up to the optimal point]<br>
+            ↑ Debt  →  ↑ Financial Risk  →  ↑ Ke  →  partially offsets WACC benefit
+        </div>
+
+        <div class="section-header">Historical Evolution of Theories</div>
+        <table class="comp-table">
+          <tr><th>Year</th><th>Theory</th><th>Authors</th><th>Key Proposition</th></tr>
+          <tr><td>1952</td><td>NI & NOI Approach</td><td>David Durand</td><td>Two extreme views on leverage relevance</td></tr>
+          <tr><td>1958</td><td>MM (No Tax)</td><td>Modigliani & Miller</td><td>Capital structure irrelevance in perfect markets</td></tr>
+          <tr><td>1963</td><td>MM (With Tax)</td><td>Modigliani & Miller</td><td>Tax shield adds value; optimal = 100% debt</td></tr>
+          <tr><td>1973</td><td>Trade-Off Theory</td><td>Various</td><td>Balance tax shield vs distress costs</td></tr>
+          <tr><td>1976</td><td>Agency Cost Theory</td><td>Jensen & Meckling</td><td>Debt reduces agency costs of equity</td></tr>
+          <tr><td>1984</td><td>Pecking Order Theory</td><td>Myers & Majluf</td><td>Firms prefer internal > debt > equity financing</td></tr>
+          <tr><td>1986</td><td>Market Timing Theory</td><td>Various</td><td>Firms issue equity when market overvalues them</td></tr>
+        </table>
+        """, unsafe_allow_html=True)
+
+    # ── NI & NOI ─────────────────────────────────────────────────────────────────
+    with edu2:
+        st.markdown("""
+        <div class="section-header">Net Income (NI) Approach — David Durand (1952)</div>
+        <div class="info-box">
+            The NI approach assumes that both the cost of debt (Kd) and cost of equity (Ke) remain
+            <b>constant and independent</b> of the degree of financial leverage. As a firm takes on more
+            debt (which is cheaper), the overall WACC falls, causing firm value to rise.
+        </div>
+
+        <div class="formula-box">
+            Assumptions:<br>
+            &nbsp;&nbsp;1. Ke = constant (investors do not perceive increased financial risk)<br>
+            &nbsp;&nbsp;2. Kd = constant (lenders do not increase rates with more debt)<br>
+            &nbsp;&nbsp;3. No taxes (original formulation)<br><br>
+            Key Equations:<br>
+            &nbsp;&nbsp;Market Value of Equity  S = EAT / Ke<br>
+            &nbsp;&nbsp;Firm Value              V = S + D<br>
+            &nbsp;&nbsp;WACC = Ko             = EBIT / V  →  decreases as D increases<br>
+            &nbsp;&nbsp;Optimal Structure       →  100% Debt (V is maximised)
+        </div>
+
+        <div class="insight-box">
+            <b>💡 Implication:</b> Firms should borrow as much as possible. Every rupee of equity replaced
+            by cheaper debt reduces WACC and increases V. The NI approach suggests an unambiguous corner
+            solution at maximum leverage.
+        </div>
+
+        <div class="warning-box">
+            <b>⚠️ Criticism:</b> Unrealistic assumption that Ke stays constant. In practice, shareholders
+            demand a higher return as financial risk rises with leverage — making constant Ke implausible.
+        </div>
+
+        <div class="section-header">Net Operating Income (NOI) Approach — David Durand (1952)</div>
+        <div class="info-box">
+            The NOI approach is the polar opposite. It argues that the overall capitalisation rate (Ko = WACC)
+            remains <b>constant</b> regardless of leverage. Firm value is determined solely by operating income (EBIT)
+            and is independent of the financing mix.
+        </div>
+
+        <div class="formula-box">
+            Assumptions:<br>
+            &nbsp;&nbsp;1. Ko = WACC = constant (the market capitalises total firm earnings at a fixed rate)<br>
+            &nbsp;&nbsp;2. Kd = constant (debt cost unchanged)<br>
+            &nbsp;&nbsp;3. Ke rises automatically to offset cheap debt benefit<br><br>
+            Key Equations:<br>
+            &nbsp;&nbsp;Firm Value    V  = EBIT / Ko  →  constant regardless of D/E<br>
+            &nbsp;&nbsp;Equity Value  S  = V − D<br>
+            &nbsp;&nbsp;Ke            = (EBIT − Interest) / S  →  rises with leverage<br>
+            &nbsp;&nbsp;No optimal capital structure exists
+        </div>
+
+        <div class="insight-box">
+            <b>💡 Implication:</b> Financial leverage is irrelevant. Any benefit from cheap debt is exactly
+            cancelled by a rise in Ke demanded by equity holders to compensate for increased financial risk.
+            This is conceptually the precursor to MM (1958).
+        </div>
+
+        <div class="section-header">NI vs NOI — Head-to-Head Comparison</div>
+        <table class="comp-table">
+          <tr><th>Feature</th><th>NI Approach</th><th>NOI Approach</th></tr>
+          <tr><td>Ke with leverage</td><td>Constant</td><td>Rises proportionally</td></tr>
+          <tr><td>Kd with leverage</td><td>Constant</td><td>Constant</td></tr>
+          <tr><td>WACC with leverage</td><td>Falls</td><td>Constant</td></tr>
+          <tr><td>Firm Value with leverage</td><td>Rises</td><td>Constant</td></tr>
+          <tr><td>Optimal Capital Structure?</td><td>Yes — 100% debt</td><td>No — irrelevant</td></tr>
+          <tr><td>Underlying assumption</td><td>Markets ignore financial risk in Ke</td><td>Markets fully price financial risk in Ke</td></tr>
+          <tr><td>Realism</td><td>Low</td><td>Moderate</td></tr>
+        </table>
+
+        <div class="section-header">Traditional / Intermediate Approach</div>
+        <div class="info-box">
+            A middle ground: up to a moderate level of debt, Ke rises slowly (investors tolerate some financial risk)
+            and Kd stays stable → WACC falls, V rises. Beyond a threshold, Ke rises sharply and Kd increases
+            (lenders demand risk premium) → WACC rises, V falls. An <b>optimal capital structure exists</b>
+            at the debt level where WACC is minimised.
+        </div>
+        <div class="formula-box">
+            Zone 1 (Low Debt):  Ke rises slowly, Kd stable → WACC ↓ → V ↑<br>
+            Zone 2 (Optimal):   WACC is minimised → V is maximised<br>
+            Zone 3 (High Debt): Ke rises sharply, Kd rises → WACC ↑ → V ↓
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ── MM MODELS ────────────────────────────────────────────────────────────────
+    with edu3:
+        st.markdown("""
+        <div class="section-header">MM Theorem — Background & Assumptions</div>
+        <div class="info-box">
+            Franco Modigliani and Merton Miller published their landmark theorem in 1958 (American Economic Review).
+            They used a rigorous arbitrage argument to prove that in <b>perfect capital markets</b>,
+            firm value is independent of capital structure. They won the Nobel Prize in Economics
+            (Miller 1990, Modigliani 1985) partly for this work.
+        </div>
+
+        <div class="formula-box">
+            MM Perfect Market Assumptions (1958):<br>
+            &nbsp;&nbsp;1. No corporate or personal taxes<br>
+            &nbsp;&nbsp;2. No transaction costs or flotation costs<br>
+            &nbsp;&nbsp;3. No bankruptcy or financial distress costs<br>
+            &nbsp;&nbsp;4. Perfect information — all investors have identical information<br>
+            &nbsp;&nbsp;5. Investors can borrow/lend at the same rate as firms (homemade leverage)<br>
+            &nbsp;&nbsp;6. EBIT is independent of capital structure<br>
+            &nbsp;&nbsp;7. Firms can be classified into homogeneous risk classes
+        </div>
+
+        <div class="section-header">MM Proposition I — No Tax (1958)</div>
+        <div class="info-box">
+            <b>Statement:</b> The total market value of a firm is independent of its capital structure
+            and is determined solely by capitalising its expected EBIT at the rate appropriate for its risk class.
+        </div>
+        <div class="formula-box">
+            V_L  =  V_U  =  EBIT / Kₑᵤ<br><br>
+            Proof (Arbitrage):<br>
+            Suppose V_L > V_U (levered firm overvalued):<br>
+            &nbsp;&nbsp;→ Investor sells shares in levered firm<br>
+            &nbsp;&nbsp;→ Borrows personally (homemade leverage) at same rate Kd<br>
+            &nbsp;&nbsp;→ Buys equivalent shares in unlevered firm<br>
+            &nbsp;&nbsp;→ Same income, lower cost → arbitrage profit<br>
+            &nbsp;&nbsp;→ Process continues until V_L = V_U
+        </div>
+
+        <div class="section-header">MM Proposition II — No Tax (1958)</div>
+        <div class="info-box">
+            <b>Statement:</b> The required return on equity (Ke) increases linearly with the debt-to-equity
+            ratio to exactly offset the benefit of cheap debt. WACC remains constant.
+        </div>
+        <div class="formula-box">
+            Ke  =  Kₑᵤ  +  (Kₑᵤ − Kd) × (D/E)<br><br>
+            where:<br>
+            &nbsp;&nbsp;Kₑᵤ = required return on unlevered equity (risk class rate)<br>
+            &nbsp;&nbsp;Kd  = cost of debt<br>
+            &nbsp;&nbsp;D/E = financial leverage ratio<br><br>
+            Interpretation:<br>
+            &nbsp;&nbsp;Ke = Business Risk Premium + Financial Risk Premium<br>
+            &nbsp;&nbsp;Financial Risk Premium = (Kₑᵤ − Kd) × D/E
+        </div>
+        <div class="insight-box">
+            <b>💡 Intuition:</b> As a firm adds debt, equity becomes riskier (residual claim after fixed debt payments).
+            Shareholders demand higher returns. The rise in Ke exactly neutralises the lower Kd benefit → WACC stays flat.
+        </div>
+
+        <div class="section-header">MM Proposition I — With Tax (1963)</div>
+        <div class="info-box">
+            In 1963, MM corrected their model to include corporate taxes. Interest payments are tax-deductible,
+            creating a <b>perpetual tax shield</b> whose present value adds directly to firm value.
+        </div>
+        <div class="formula-box">
+            V_L  =  V_U  +  PV(Tax Shield)<br>
+            V_L  =  V_U  +  T × D  (assuming debt is permanent)<br><br>
+            where:<br>
+            &nbsp;&nbsp;V_U = EBIT(1−T) / Kₑᵤ  (unlevered firm value after tax)<br>
+            &nbsp;&nbsp;T   = corporate tax rate<br>
+            &nbsp;&nbsp;D   = market value of debt<br>
+            &nbsp;&nbsp;T×D = PV of tax shield (discounted at Kd assuming perpetual debt)<br><br>
+            Annual Tax Shield  =  T × Kd × D<br>
+            PV(Tax Shield)     =  (T × Kd × D) / Kd  =  T × D
+        </div>
+
+        <div class="section-header">MM Proposition II — With Tax (1963)</div>
+        <div class="formula-box">
+            Ke  =  Kₑᵤ  +  (Kₑᵤ − Kd) × (1−T) × (D/E)<br><br>
+            WACC  =  Ke·(E/V)  +  Kd·(1−T)·(D/V)<br>
+            WACC  =  Kₑᵤ × (1 − T·D/V)  →  falls as D/V rises<br><br>
+            Key difference from No-Tax version:<br>
+            &nbsp;&nbsp;Financial risk premium is moderated by (1−T)<br>
+            &nbsp;&nbsp;Ke rises more slowly → WACC actually falls with leverage<br>
+            &nbsp;&nbsp;Optimal structure → 100% debt (corner solution again)
+        </div>
+        <div class="warning-box">
+            <b>⚠️ Limitation:</b> The 100% debt prescription is unrealistic. In reality, high debt triggers
+            bankruptcy risk, agency costs, and loss of financial flexibility — costs not captured in MM (1963).
+            This motivated Trade-Off Theory.
+        </div>
+
+        <div class="section-header">MM Models — Complete Comparison</div>
+        <table class="comp-table">
+          <tr><th>Feature</th><th>MM No Tax (1958)</th><th>MM With Tax (1963)</th></tr>
+          <tr><td>Proposition I</td><td>V_L = V_U</td><td>V_L = V_U + T·D</td></tr>
+          <tr><td>Proposition II</td><td>Ke = Kₑᵤ + (Kₑᵤ−Kd)·D/E</td><td>Ke = Kₑᵤ + (Kₑᵤ−Kd)(1−T)·D/E</td></tr>
+          <tr><td>WACC</td><td>Constant = Kₑᵤ</td><td>Decreases with leverage</td></tr>
+          <tr><td>Firm Value</td><td>Constant</td><td>Increases with D</td></tr>
+          <tr><td>Tax Shield</td><td>None</td><td>T × D</td></tr>
+          <tr><td>Optimal D/E</td><td>Indeterminate</td><td>100% debt</td></tr>
+          <tr><td>Key mechanism</td><td>Arbitrage eliminates V differences</td><td>Tax deductibility of interest</td></tr>
+          <tr><td>Ke slope</td><td>(Kₑᵤ − Kd)</td><td>(Kₑᵤ − Kd)(1−T) — flatter</td></tr>
+        </table>
+        """, unsafe_allow_html=True)
+
+    # ── REAL WORLD EXTENSIONS ────────────────────────────────────────────────────
+    with edu4:
+        st.markdown("""
+        <div class="section-header">Trade-Off Theory</div>
+        <div class="info-box">
+            The Trade-Off Theory extends MM (1963) by introducing <b>costs of financial distress</b>.
+            Firms balance the tax shield benefit of debt against the rising probability and cost of
+            financial distress as leverage increases. An <b>interior optimal capital structure</b> exists.
+        </div>
+        <div class="formula-box">
+            V_L  =  V_U  +  PV(Tax Shield)  −  PV(Financial Distress Costs)<br><br>
+            Financial Distress Costs include:<br>
+            &nbsp;&nbsp;Direct:  Legal fees, restructuring costs, administrative expenses (~3–5% of firm value)<br>
+            &nbsp;&nbsp;Indirect: Lost customers, key employee departure, supplier credit withdrawal,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;underinvestment problems, asset fire sales (~10–20% of firm value)<br><br>
+            Optimal D*: where ΔPV(Tax Shield) = ΔPVCFD (marginal benefit = marginal cost)
+        </div>
+        <div class="insight-box">
+            <b>💡 Prediction:</b> Firms with stable, predictable cash flows (utilities, telecoms) can support
+            more debt. Firms with volatile earnings or intangible assets (tech, pharma) should use less debt.
+            Target D/E ratios exist and firms gradually move toward them.
+        </div>
+
+        <div class="section-header">Pecking Order Theory — Myers & Majluf (1984)</div>
+        <div class="info-box">
+            Based on <b>information asymmetry</b> between managers (who know true firm value) and investors.
+            Managers avoid issuing undervalued equity. Instead, firms follow a financing hierarchy:
+            <b>Internal funds → Debt → Equity (last resort)</b>
+        </div>
+        <div class="formula-box">
+            Pecking Order Hierarchy:<br>
+            &nbsp;&nbsp;1st: Retained earnings / internal cash flows (no information problem)<br>
+            &nbsp;&nbsp;2nd: Debt (lenders have priority claim; less information sensitivity)<br>
+            &nbsp;&nbsp;3rd: Equity (most sensitive to asymmetric information; signals overvaluation)<br><br>
+            Signal: Equity issuance → market interprets as "stock is overpriced" → share price falls<br>
+            Signal: Debt issuance → market interprets as management confidence in future cash flows
+        </div>
+        <div class="insight-box">
+            <b>💡 Empirical Evidence:</b> Most firms fund investment primarily from retained earnings.
+            Large, established firms (low information asymmetry) use more debt. High-growth firms
+            with high information asymmetry rely more on equity.
+        </div>
+
+        <div class="section-header">Agency Cost Theory — Jensen & Meckling (1976)</div>
+        <div class="info-box">
+            Agency costs arise from conflicts of interest between <b>shareholders vs managers</b>
+            (equity agency costs) and <b>shareholders vs bondholders</b> (debt agency costs).
+            Debt can reduce equity agency costs (free cash flow problem) but creates debt agency costs.
+        </div>
+        <div class="formula-box">
+            Equity Agency Costs (Manager–Shareholder conflict):<br>
+            &nbsp;&nbsp;• Empire building, excessive perks, risk aversion by managers<br>
+            &nbsp;&nbsp;• Debt REDUCES these: interest payments force discipline on free cash flows<br><br>
+            Debt Agency Costs (Shareholder–Bondholder conflict):<br>
+            &nbsp;&nbsp;• Underinvestment: shareholders skip positive NPV projects if gains go to bondholders<br>
+            &nbsp;&nbsp;• Asset substitution: shareholders prefer riskier projects (option-like payoff)<br>
+            &nbsp;&nbsp;• Debt INCREASES these as leverage rises<br><br>
+            Optimal D*: Minimises total agency costs (equity + debt agency costs)
+        </div>
+
+        <div class="section-header">Market Timing Theory</div>
+        <div class="info-box">
+            Firms issue equity when their stock appears <b>overvalued</b> relative to book or intrinsic value,
+            and repurchase shares when undervalued. Capital structure is the cumulative result of past
+            market timing decisions — no target D/E ratio exists.
+        </div>
+        <div class="formula-box">
+            Issue equity when:  Market-to-Book ratio is high (stock appears overvalued)<br>
+            Issue debt when:    Interest rates are low / stock appears undervalued<br><br>
+            Baker & Wurgler (2002): Historical M/B ratios have significant negative effect on leverage<br>
+            → Past financing windows permanently affect current capital structure
+        </div>
+
+        <div class="section-header">Signalling Theory</div>
+        <div class="info-box">
+            Capital structure decisions convey information signals to the market:
+        </div>
+        <table class="comp-table">
+          <tr><th>Action</th><th>Signal to Market</th><th>Expected Share Price Reaction</th></tr>
+          <tr><td>Equity issuance</td><td>Stock may be overvalued; dilution risk</td><td style="color:#dc3545">Negative (↓ ~3%)</td></tr>
+          <tr><td>Debt issuance</td><td>Management confident in future cash flows</td><td style="color:#28a745">Mildly positive</td></tr>
+          <tr><td>Share buyback</td><td>Stock is undervalued; excess cash available</td><td style="color:#28a745">Positive (↑ ~3–4%)</td></tr>
+          <tr><td>Dividend increase</td><td>Sustainable earnings; strong cash position</td><td style="color:#28a745">Positive</td></tr>
+          <tr><td>Leverage increase</td><td>Management expects strong future EBIT</td><td style="color:#28a745">Positive</td></tr>
+          <tr><td>Leverage decrease (equity for debt)</td><td>Possible financial stress signal</td><td style="color:#dc3545">Negative</td></tr>
+        </table>
+
+        <div class="section-header">Indian Market Context</div>
+        <div class="info-box">
+            Indian firms face unique capital structure considerations:
+        </div>
+        <table class="comp-table">
+          <tr><th>Factor</th><th>Indian Context</th><th>Impact on Capital Structure</th></tr>
+          <tr><td>Tax Rate</td><td>Corporate tax ~25.17% (incl. surcharge) post 2019</td><td>Moderate tax shield benefit</td></tr>
+          <tr><td>Promoter Holdings</td><td>High promoter stakes (~50–70%)</td><td>Preference for debt to avoid dilution</td></tr>
+          <tr><td>Banking Sector</td><td>PSU banks; NPA issues; Basel III compliance</td><td>Credit availability affects optimal D</td></tr>
+          <tr><td>Capital Markets</td><td>SEBI regulations; growing bond market depth</td><td>Equity more accessible post reforms</td></tr>
+          <tr><td>Family-owned businesses</td><td>Majority of listed firms</td><td>Control aversion → pecking order preference</td></tr>
+          <tr><td>Growth opportunities</td><td>High-growth sectors (IT, pharma, fintech)</td><td>Lower debt; prefer equity/internal funds</td></tr>
+          <tr><td>Interest rates</td><td>RBI repo rate cycles</td><td>Timing of debt issuance; floating vs fixed</td></tr>
+        </table>
+
+        <div class="section-header">Integrated Framework — Theory to Practice</div>
+        <div class="formula-box">
+            Practical Capital Structure Decision Framework:<br><br>
+            Step 1: Establish V_U  =  EBIT(1−T) / Kₑᵤ  [MM baseline]<br>
+            Step 2: Add Tax Shield  →  + T × D<br>
+            Step 3: Subtract Distress Costs  →  − PV(FDC)  [Trade-Off]<br>
+            Step 4: Consider Agency Costs  →  − AC(debt) + AC(equity savings)<br>
+            Step 5: Check Pecking Order  →  Use internal funds first<br>
+            Step 6: Assess Signalling  →  What does each choice signal?<br>
+            Step 7: Consider Market Timing  →  Is equity over/undervalued?<br><br>
+            V_L* = V_U + T·D − PV(FDC) − Net Agency Costs  [Full Model]
+        </div>
+
+        <div class="section-header">Key Examination Points</div>
+        <table class="comp-table">
+          <tr><th>#</th><th>Concept</th><th>Key Formula / Statement</th></tr>
+          <tr><td>1</td><td>NI Approach</td><td>Ke & Kd constant; WACC falls; V rises; optimal = 100% D</td></tr>
+          <tr><td>2</td><td>NOI Approach</td><td>WACC constant; Ke rises; V constant; no optimal structure</td></tr>
+          <tr><td>3</td><td>MM Prop I (No Tax)</td><td>V_L = V_U; proven by arbitrage / homemade leverage</td></tr>
+          <tr><td>4</td><td>MM Prop II (No Tax)</td><td>Ke = Kₑᵤ + (Kₑᵤ−Kd)·D/E; WACC = Kₑᵤ</td></tr>
+          <tr><td>5</td><td>MM Prop I (Tax)</td><td>V_L = V_U + T·D; PV tax shield = T·D</td></tr>
+          <tr><td>6</td><td>MM Prop II (Tax)</td><td>Ke = Kₑᵤ + (Kₑᵤ−Kd)(1−T)·D/E; WACC falls</td></tr>
+          <tr><td>7</td><td>Trade-Off Theory</td><td>V_L = V_U + T·D − PV(FDC); interior optimum</td></tr>
+          <tr><td>8</td><td>Pecking Order</td><td>Internal > Debt > Equity; information asymmetry driven</td></tr>
+          <tr><td>9</td><td>Agency Costs</td><td>Debt reduces equity agency cost; raises debt agency cost</td></tr>
+          <tr><td>10</td><td>Tax Shield</td><td>Annual TS = T·Kd·D; PV(TS) = T·D (perpetual debt)</td></tr>
+        </table>
+
+        <div class="insight-box" style="margin-top:20px;">
+            <b>📝 Prof. Ravichandran's Note:</b> In examinations, always begin capital structure problems by
+            identifying which theory applies. State assumptions explicitly. For MM problems, always compute
+            V_U first, then add T·D for the with-tax case. Remember: MM (1963) gives a corner solution —
+            real-world optimal structure requires Trade-Off Theory adjustments.
+        </div>
+        """, unsafe_allow_html=True)
 
 # ─── Footer ───────────────────────────────────────────────────────────────────────
 st.markdown("""
